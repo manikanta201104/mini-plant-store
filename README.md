@@ -1,70 +1,108 @@
-# Getting Started with Create React App
+# Mini Plant Store - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+This is the frontend for the Mini Plant Store, built for the Urvann Software Development Intern Assignment. It provides a responsive UI for browsing plants, searching/filtering, and an admin panel for full CRUD operations with local image uploads.
 
-## Available Scripts
+## Features
+1. **Plant Catalog**:
+   - Displays a grid of plants with name, price, categories, availability, image, and description.
+   - Clickable cards open a modal with detailed plant info.
+2. **Search & Filter**:
+   - Case-insensitive search by plant name or category keyword.
+   - Multi-select category filter (dropdown populated from backend).
+3. **Admin Panel**:
+   - **Add Plant**: Form to add plants with name, price, multiple categories (CreatableSelect), availability, image upload, and description.
+   - **List Plants**: Table view with images, edit, and delete buttons.
+   - **Edit Plant**: Pre-filled form to update plant details, including new image uploads.
+   - **Delete Plant**: Delete with confirmation prompt.
+4. **Responsive UI**:
+   - Mobile-friendly (single-column on small screens, multi-column on larger).
+   - Tailwind CSS for consistent, modern styling.
+5. **Loading & Error States**:
+   - Skeleton loaders during API fetches.
+   - Error messages with retry buttons for failed requests.
+6. **Extra Features**:
+   - Local image uploads (replaces URL input) with previews.
+   - Real-time debounced search (300ms delay).
+   - Toast notifications for CRUD feedback.
+   - Modal for plant details.
+   - Animation on catalog cards (fade-in-up).
 
-In the project directory, you can run:
+## Tech Stack
+- **Framework**: ReactJS (hooks, functional components).
+- **Styling**: Tailwind CSS.
+- **Libraries**:
+  - axios (API calls).
+  - react-hook-form + yup (form validation).
+  - react-select/creatable-react-select (category selection).
+  - react-toastify (notifications).
+  - react-router-dom (routing).
+  - lodash (debounce for search).
+- **Routing**: / (Catalog), /admin (Admin Panel).
 
-### `npm start`
+## Setup Instructions
+### Prerequisites
+- Node.js (v18+ recommended).
+- Backend running at `http://localhost:5000` (see backend README).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Installation
+1. Clone the repository:
+   ```
+   git clone <your-repo-url>/mini-plant-store.git
+   cd mini-plant-store
+   ```
+2. Install dependencies:
+   ```
+   npm install
+   ```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Run Locally
+```
+npm start
+```
+- Opens at `http://localhost:3000`.
+- Routes:
+  - Catalog: `/`
+  - Admin: `/admin`
 
-### `npm test`
+### Build for Production
+```
+npm run build
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Deployment
+- **Platform**: Vercel (free tier).
+- **Deployed URL**: [https://your-frontend.vercel.app] (replace with your deployed URL).
+- **Configuration**:
+  - Push to GitHub, connect to Vercel.
+  - No environment variables needed (update axios base URL to deployed backend in production, e.g., `https://your-backend.render.com`).
+- **Notes**: Ensure backend is deployed and accessible for API calls.
 
-### `npm run build`
+## Usage
+- **Catalog**:
+  - Browse plants in a grid.
+  - Use search bar for name/category (e.g., "Money Plant" or "Indoor").
+  - Filter by categories via dropdown.
+  - Click a plant card to view details in a modal.
+- **Admin Panel**:
+  - **Add**: Fill form, upload image (.jpg/.png), select/create categories, submit.
+  - **List**: View plants with images, edit/delete buttons.
+  - **Edit**: Update plant details, upload new image if needed.
+  - **Delete**: Confirm deletion in prompt.
+- **Notes**:
+  - Images are uploaded to backend’s `/uploads` and served from `http://localhost:5000/Uploads/...`.
+  - Ensure backend is running to avoid API errors.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Code Quality
+- **Modularity**: Reusable components (PlantCard, SearchBar, AddPlantForm, UpdatePlantForm, PlantList).
+- **State Management**: React hooks (useState, useEffect, useCallback).
+- **Validation**: Yup schemas for form inputs.
+- **Error Handling**: Robust error messages, loading states, and retry logic.
+- **Performance**: Debounced search, memoized callbacks, optimized API calls.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Troubleshooting
+- **Images Not Showing**: Verify backend serves images at `http://localhost:5000/Uploads/...`. Check console for 404 errors.
+- **API Errors**: Ensure backend is running and MongoDB is connected.
+- **Search Issues**: Confirm debounced search updates results (300ms delay).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+For issues, contact [your-email].
