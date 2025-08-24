@@ -48,7 +48,7 @@ This is the frontend for the Mini Plant Store, built for the Urvann Software Dev
 ### Installation
 1. Clone the repository:
    ```
-   git clone <your-repo-url>/mini-plant-store.git
+   git clone https://github.com/manikanta201104/mini-plant-store.git/mini-plant-store.git
    cd mini-plant-store
    ```
 2. Install dependencies:
@@ -72,10 +72,10 @@ npm run build
 
 ## Deployment
 - **Platform**: Vercel (free tier).
-- **Deployed URL**: [https://your-frontend.vercel.app] (replace with your deployed URL).
+- **Deployed URL**: [https://urvannplantstore.vercel.app/] 
 - **Configuration**:
   - Push to GitHub, connect to Vercel.
-  - No environment variables needed (update axios base URL to deployed backend in production, e.g., `https://your-backend.render.com`).
+  - No environment variables needed (update axios base URL to deployed backend in production, e.g., `https://urvann-yz2n.onrender.com`).
 - **Notes**: Ensure backend is deployed and accessible for API calls.
 
 ## Usage
